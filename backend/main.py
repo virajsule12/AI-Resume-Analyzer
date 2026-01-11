@@ -84,4 +84,6 @@ async def analyze_pdf(file: UploadFile = File(...), job_description: str =Form(.
         )
 
 
-
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
