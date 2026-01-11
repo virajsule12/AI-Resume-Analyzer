@@ -11,7 +11,12 @@ from fastapi import File, UploadFile, Form
 dotenv_path = pathlib.Path(__file__).parent / ".env"
 load_dotenv(dotenv_path=dotenv_path)  # Reads .env file
 
-app = FastAPI()
+app = FastAPI(
+    title="AI Text Analyzer",
+    description="Your API description",
+    version="1.0",
+    root_path="/ai-text-analyzer"   # <-- important
+)
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
