@@ -15,7 +15,7 @@ app = FastAPI(
     title="AI Text Analyzer",
     description="Your API description",
     version="1.0",
-    root_path="/ai-text-analyzer"   # <-- important
+    root_path="/resume-analyzer"   # <-- important
 )
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
