@@ -19,19 +19,23 @@ export default function App() {
     setResult(null);
 
     try {
-      const response = await fetch("http://localhost:8000/analyze-pdf", {
+      const response = await fetch("/api/resume", { // relative path
         method: "POST",
         body: formData,
-      });
+    });
 
       if (!response.ok) throw new Error("Analysis failed");
       const data = await response.json();
       setResult(data);
-    } catch {
+    } catch (err) {
+      console.error(err);
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
+
+
+    
   };
 
   return (
